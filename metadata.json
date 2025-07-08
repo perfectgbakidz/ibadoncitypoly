@@ -1,0 +1,8 @@
+{
+  "name": "Ibadan City Polytechnic - Library Management System",
+  "description": "A modern, responsive web application to manage books, users, and borrowing records for The Polytechnic, Ibadan library. Features include CRUD operations, search, and a dashboard with key statistics.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "prompt": ""
+}
