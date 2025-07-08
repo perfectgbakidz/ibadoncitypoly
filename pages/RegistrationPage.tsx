@@ -16,6 +16,7 @@ const Logo = () => (
     </div>
 );
 
+
 const RegistrationPage: React.FC = () => {
     const [formData, setFormData] = useState({
         name: '',
