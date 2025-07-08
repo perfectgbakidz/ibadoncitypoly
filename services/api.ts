@@ -1,6 +1,3 @@
-
-
-
 import { Book, User, Loan, DashboardStats, UserRegistration, ChangePasswordData, UserDetails } from '../types';
 
 const BASE_URL = 'https://fastapilibrary.onrender.com'; 
@@ -17,8 +14,12 @@ const constructFullUrl = (path: string | null | undefined): string | null | unde
     if (path.startsWith('http://') || path.startsWith('https://')) {
         return path;
     }
-    // Otherwise, prepend the base URL. Assumes path starts with '/'
-    return `${BASE_URL}${path}`;
+    // Sanitize path: replace backslashes and ensure it starts with a single forward slash.
+    let sanitizedPath = path.replace(/\\/g, '/');
+    if (!sanitizedPath.startsWith('/')) {
+        sanitizedPath = '/' + sanitizedPath;
+    }
+    return `${BASE_URL}${sanitizedPath}`;
 };
 
 
@@ -129,7 +130,7 @@ export const getBooks = async (): Promise<Book[]> => {
         availableQuantity: book.available_quantity,
         description: book.description,
         category: book.category,
-        coverImageUrl: book.cover_image_url,
+        coverImageUrl: constructFullUrl(book.cover_image_url),
     }));
 }
 
@@ -138,7 +139,7 @@ export const getBookById = async (id: number): Promise<Book> => {
     return {
         ...book,
         availableQuantity: book.available_quantity,
-        coverImageUrl: book.cover_image_url,
+        coverImageUrl: constructFullUrl(book.cover_image_url),
     };
 };
 
@@ -157,7 +158,18 @@ export const createBook = async (bookData: Omit<Book, 'id'>, coverImageFile?: Fi
         formData.append('cover_image', coverImageFile);
     }
 
-    return apiFetch('/books/', { method: 'POST', body: formData });
+    const newBookFromApi = await apiFetch('/books/', { method: 'POST', body: formData });
+    return {
+        id: newBookFromApi.id,
+        title: newBookFromApi.title,
+        author: newBookFromApi.author,
+        isbn: newBookFromApi.isbn,
+        quantity: newBookFromApi.quantity,
+        availableQuantity: newBookFromApi.available_quantity,
+        description: newBookFromApi.description,
+        category: newBookFromApi.category,
+        coverImageUrl: constructFullUrl(newBookFromApi.cover_image_url),
+    };
 };
 
 export const updateBook = async (bookData: Book, coverImageFile?: File | null): Promise<Book> => {
@@ -174,7 +186,18 @@ export const updateBook = async (bookData: Book, coverImageFile?: File | null): 
         formData.append('cover_image', coverImageFile);
     }
     
-    return apiFetch(`/books/${id}`, { method: 'PUT', body: formData });
+    const updatedBookFromApi = await apiFetch(`/books/${id}`, { method: 'PUT', body: formData });
+    return {
+        id: updatedBookFromApi.id,
+        title: updatedBookFromApi.title,
+        author: updatedBookFromApi.author,
+        isbn: updatedBookFromApi.isbn,
+        quantity: updatedBookFromApi.quantity,
+        availableQuantity: updatedBookFromApi.available_quantity,
+        description: updatedBookFromApi.description,
+        category: updatedBookFromApi.category,
+        coverImageUrl: constructFullUrl(updatedBookFromApi.cover_image_url),
+    };
 };
 
 export const deleteBook = async (id: number) => {
