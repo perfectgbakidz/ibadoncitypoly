@@ -6,11 +6,12 @@ import { ADMIN_NAV_ITEMS, USER_NAV_ITEMS } from '../../constants';
 import { useAuth } from '../../hooks/useAuth';
 
 const Logo = () => (
-    <div className="flex flex-col items-center justify-center py-4 border-b border-slate-200">
+    <div className="flex flex-col items-center justify-center text-slate-800 mb-4">
         <img src="public/logo.jpeg" alt="Ibadan City Polytechnic Logo" className="w-24" />
-        <span className="text-green-800 font-semibold text-lg mt-2 text-center">Ibadan City Polytechnic</span>
+        <h1 className="text-xl font-bold text-green-800 mt-2">Ibadan City Polytechnic Library</h1>
     </div>
 );
+
 
 interface SidebarProps {
     isOpen: boolean;
