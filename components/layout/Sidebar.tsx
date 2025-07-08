@@ -7,7 +7,7 @@ import { useAuth } from '../../hooks/useAuth';
 
 const Logo = () => (
     <div className="flex flex-col items-center justify-center py-4 border-b border-slate-200">
-        <img src="/logo.jpeg" alt="Ibadan City Polytechnic Logo" className="w-24" />
+        <img src="public/logo.jpeg" alt="Ibadan City Polytechnic Logo" className="w-24" />
         <span className="text-green-800 font-semibold text-lg mt-2 text-center">Ibadan City Polytechnic</span>
     </div>
 );
