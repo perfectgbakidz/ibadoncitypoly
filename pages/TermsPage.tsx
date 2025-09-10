@@ -30,7 +30,7 @@ const TermsPage: React.FC = () => {
 
                 <h2 className="text-xl font-semibold text-slate-700 pt-4">Contact Us</h2>
                 <p>
-                    If you have any questions about these Terms and Conditions, You can contact us by email at library@polyibadan.edu.ng.
+                    If you have any questions about these Terms and Conditions, You can contact us by email at library@mapoly.edu.ng.
                 </p>
             </div>
         </div>
