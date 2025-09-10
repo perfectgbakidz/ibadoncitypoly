@@ -28,7 +28,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
                 <h2 className="text-xl font-semibold text-slate-700 pt-4">Contact Us</h2>
                 <p>
-                    If you have any questions about this Privacy Policy, You can contact us by email at library@polyibadan.edu.ng.
+                    If you have any questions about this Privacy Policy, You can contact us by email at library@mapoly.edu.ng.
                 </p>
             </div>
         </div>
