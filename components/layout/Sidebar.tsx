@@ -68,7 +68,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
           </ul>
         </nav>
         <div className="pt-4 border-t border-slate-200">
-           <p className="text-xs text-slate-400 text-center">&copy; 2024 Library System</p>
+           <p className="text-xs text-slate-400 text-center">&copy; 2025 Library System</p>
         </div>
       </aside>
     </>
