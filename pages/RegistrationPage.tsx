@@ -12,7 +12,7 @@ import Spinner from '../components/common/Spinner';
 const Logo = () => (
     <div className="flex flex-col items-center justify-center text-slate-800 mb-4">
         <img src="/logo.jpeg" alt="Ibadan City Polytechnic Logo" className="w-24" />
-        <h1 className="text-xl font-bold text-green-800 mt-2">Ibadan City Polytechnic Library</h1>
+        <h1 className="text-xl font-bold text-green-800 mt-2">Noshood Abiola Polytechnic Library</h1>
     </div>
 );
 
